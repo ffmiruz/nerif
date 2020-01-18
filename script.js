@@ -52,10 +52,10 @@ const runAlgo = function (symbol, price){
 		case 'BNB': 
 			return predicted = BNB(price)
 			break
-		case 'TRX': 
+		case 'ETC': 
 			return predicted = ETC(price)
 			break
-		case 'ETC': 
+		case 'XLM': 
 			return predicted = XLM(price)
 			break
 		case 'XMR': 
@@ -117,13 +117,22 @@ const EOS = function (d) {
 	return y
 }
 const BNB = function (d) {
-	return d * 2/1.1
+	let y = 0.0
+	y = (0.113927 - 0.399320)
+	y += (0.245504 * (((((d * 0.467636) * 0.467636) - (d - 0.245504)) / d) + 0.467636))
+	y += 0.363423
+	y += (((d / (d * 0.588693)) + ((0.588693 / 0.422712) + 0.588693)) / (0.422712 * d))
+	return y
 }
 const ETC = function (d) {
 	return d / 2*1.9
 }
 const XLM = function (d) {
-	return d * 2.3/1.9
+	let y = 0.0
+	y = (d + (((0.216347 - 0.216347) / d) - (d + d)))
+	y += d
+	y += (0.967481 * (0.060203 / d))
+	return y
 }
 const XMR = function (d) {
 	return d * 2.1/1.3

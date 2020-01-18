@@ -6,8 +6,8 @@ const process = async function() {
 	//if( !arg ) return null;
 	const conf = {method: "GET"}
 	let request, data
-	request = await fetch("http://cryptomarketplot.com/api.json", conf)
-	//request = await fetch("/test_api.json", conf)
+	//request = await fetch("http://cryptomarketplot.com/api.json", conf)
+	request = await fetch("/test_api.json", conf)
 	data = await request.json()
 	btcusd = data[0].price_usd
 	// 
@@ -60,6 +60,9 @@ const runAlgo = function (symbol, price){
 			break
 		case 'XMR': 
 			return predicted = XMR(price)
+			break
+		case 'TRX': 
+			return predicted = TRX(price)
 			break
 		default :
 			predicted = pDefault()
@@ -139,6 +142,13 @@ const XMR = function (d) {
 	y = ((0.143161 - (0.733690 * 0.143161)) * ((0.143161 / 0.733690) * (d / d)))
 	y += ((((0.640749 - 0.640749) * d) - ((0.367967 / d) - 0.640749)) / d)
 	y += ((0.543507 * (0.543507 - 0.269705)) / (d * (0.269705 * 0.269705)))
+	return y
+}
+const TRX = function (d) {
+	let y = 0.0
+	y = ((((0.741269 * 0.741269) * (0.741269 - 0.741269)) * 0.741269) - d)
+	y += ((((0.186656 * 0.186656) * d) / (d + d)) / (d - (0.186656 / 0.186656)))
+	y += d
 	return y
 }
 const pDefault = function () {

@@ -6,8 +6,8 @@ const process = async function() {
 	//if( !arg ) return null;
 	const conf = {method: "GET"}
 	let request, data
-	//request = await fetch("http://cryptomarketplot.com/api.json", conf)
-	request = await fetch("/test_api.json", conf)
+	request = await fetch("http://cryptomarketplot.com/api.json", conf)
+	//request = await fetch("/test_api.json", conf)
 	data = await request.json()
 	btcusd = data[0].price_usd
 	// 
@@ -128,7 +128,11 @@ const BNB = function (d) {
 	return y
 }
 const ETC = function (d) {
-	return d / 2*1.9
+	let y = 0.0
+	y = (((d - d) - (d - 0.966846)) / d)
+	y += (d / (((d + 0.177098) * 0.177098) * ((0.177098 / 0.177098) + d)))
+	y += ((((0.819241 - 0.819241) * 0.819241) + ((0.819241 + d) + 0.819241)) / d)
+	return y
 }
 const XLM = function (d) {
 	let y = 0.0

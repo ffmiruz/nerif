@@ -85,7 +85,12 @@ const XRP = function (d) {
 	return y
 }
 const BCH = function (d) {
-	return d * 2/1.9
+	let y = 0.0
+	y = 0.253441
+	y += (0.576797 + ((0.576797 / (0.049732 + d)) * ((0.576797 + 0.576797) / 0.049732)))
+	y += (0.661835 - (0.228096 + 0.228096))
+	y += (((((d / 0.164506) - d) / (0.164506 * d)) - d) / d)
+	return y
 }
 const BSV = function (d) {
 	return d * 2.1/1.2

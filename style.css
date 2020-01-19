@@ -1,8 +1,7 @@
 /* CSS files add styling rules to your content */
 :root {
     --font: saira;
-    --primary-color: #24A0ED;
-    --light: #f7f2e4;
+    --primary: #000099;
 }
 
 *{
@@ -42,20 +41,22 @@ body {background-color: #f7f2e4;
 .w-100,
 .row {
     width: 100%;
+	margin-bottom: 1em;
 }
 
 .card:focus,
 hr {
     outline: 0;
-    border: solid var(--primary-color);
+    border: solid var(--primary);
     margin: 2em 0;
 }
 
 .card,
 pre {
     padding: 1em;
-    border: solid var(--light);
+    border: solid var(--primary);
     text-align: justify;
+	background-color: #ffffff;
 }
 
 a:hover,
@@ -64,7 +65,7 @@ a:hover,
 }
 
 .c {
-    background-color: #F7EBC3;
+    background-color: #e5e5e5;
     max-width: 80em;
     padding: 1em;
     margin: auto;
@@ -96,14 +97,14 @@ h1 {
 }
 
 a {
-    color: var(--primary-color);
+    color: var(--primary);
     text-decoration: none;
 }
 
 .btn.primary {
     color: white;
-    background: var(--primary-color);
-    border: solid var(--primary-color);
+    background: var(--primary);
+    border: solid var(--primary);
 }
 
 pre {
@@ -114,7 +115,7 @@ td,
 th {
     padding: 1em;
     text-align: left;
-    border-bottom: solid var(--light);
+    border-bottom: solid var(--primary);
 }
 
 .btn {

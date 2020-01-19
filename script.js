@@ -6,8 +6,8 @@ const process = async function() {
 	//if( !arg ) return null;
 	const conf = {method: "GET"}
 	let request, data
-	request = await fetch("http://cryptomarketplot.com/api.json", conf)
-	//request = await fetch("/test_api.json", conf)
+	//request = await fetch("http://cryptomarketplot.com/api.json", conf)
+	request = await fetch("/test_api.json", conf)
 	data = await request.json()
 	btcusd = data[0].price_usd
 	// 

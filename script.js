@@ -1,31 +1,27 @@
 const $ = _ => document.querySelector(_)
 const $a = _ => document.querySelectorAll(_)
-let btcusd
 
 const process = async function() {
-	//if( !arg ) return null;
 	const conf = {method: "GET"}
-	let request, data
+	let request, data, btcusd
 	//request = await fetch("http://cryptomarketplot.com/api.json", conf)
 	request = await fetch("/test_api.json", conf)
 	data = await request.json()
 	btcusd = data[0].price_usd
-	// 
+	// BTC is always assume at 0, slice the next 10
 	data.slice(1,11).forEach((item, i, array) => {
-	$a('.col.card h4')[i*2+1].textContent = item.symbol
-	$a('.col.card p')[i*2].textContent += item.price_btc
-
-	let algoPrice = runAlgo(item.symbol, Number(btcusd))
-	if (algoPrice < 0) {
-		$a('.col.card p')[i*2+1].textContent += "Unavailable"
-		$a('.col.card h4')[i*2].textContent = "No results"
-	} else {
-	$a('.col.card p')[i*2+1].textContent += algoPrice.toExponential(4)
-	$a('.col.card h4')[i*2].textContent = diff(item.price_btc, algoPrice).toFixed(2) +'%'
-	}
-
+		$a('.col.card h4')[i*2+1].textContent = item.symbol
+		$a('.col.card p')[i*2].textContent += item.price_btc
+	
+		let algoPrice = runAlgo(item.symbol, Number(btcusd))
+		if (algoPrice < 0) {
+			$a('.col.card p')[i*2+1].textContent += "Unavailable"
+			$a('.col.card h4')[i*2].textContent = "None"
+		} else {
+		$a('.col.card p')[i*2+1].textContent += algoPrice.toExponential(4)
+		$a('.col.card h4')[i*2].textContent = percentDiff(item.price_btc, algoPrice).toFixed(2) +'%'
+		}
 	});
-
 }
 
 const runAlgo = function (symbol, price){
@@ -159,9 +155,8 @@ const pDefault = function () {
 	return  -1
 }
 
-const diff = function (current, predicted){
+const percentDiff = function (current, predicted){
 	return (current-predicted)/predicted * 100	
 }
-
 
 process();

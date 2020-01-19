@@ -8,18 +8,28 @@ const process = async function() {
 	request = await fetch("/test_api.json", conf)
 	data = await request.json()
 	btcusd = data[0].price_usd
+	
+	let cardH4 = $a('.col.card h4')
+	let cardP = $a('.col.card p')
 	// BTC is always assume at 0, slice the next 10
 	data.slice(1,11).forEach((item, i, array) => {
-		$a('.col.card h4')[i*2+1].textContent = item.symbol
-		$a('.col.card p')[i*2].textContent += item.price_btc
+		cardH4[i*2+1].textContent = item.symbol
+		cardP[i*2].textContent += item.price_btc
 	
 		let algoPrice = runAlgo(item.symbol, Number(btcusd))
-		if (algoPrice < 0) {
-			$a('.col.card p')[i*2+1].textContent += "Unavailable"
-			$a('.col.card h4')[i*2].textContent = "None"
+		if (algoPrice >= 0) {
+			cardP[i*2+1].textContent += algoPrice.toExponential(4)
+		
+			let diff = percentDiff(item.price_btc, algoPrice).toFixed(2)
+			if (diff <= -10) {
+				cardH4[i*2].parentNode.style.backgroundColor = "#def5f0"
+			} else if (diff >= 10) {
+				cardH4[i*2].parentNode.style.backgroundColor = "#ffeff1"
+			}
+			cardH4[i*2].textContent = diff +'%'
 		} else {
-		$a('.col.card p')[i*2+1].textContent += algoPrice.toExponential(4)
-		$a('.col.card h4')[i*2].textContent = percentDiff(item.price_btc, algoPrice).toFixed(2) +'%'
+			cardP[i*2+1].textContent += "Unavailable"
+			cardH4[i*2].textContent = "None"
 		}
 	});
 }

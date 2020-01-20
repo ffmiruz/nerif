@@ -21,10 +21,16 @@ const process = async function() {
 			cardP[i*2+1].textContent += algoPrice.toExponential(4)
 		
 			let diff = percentDiff(item.price_btc, algoPrice).toFixed(2)
-			if (diff <= -10) {
-				cardH4[i*2].parentNode.style.backgroundColor = "#def5f0"
-			} else if (diff >= 10) {
-				cardH4[i*2].parentNode.style.backgroundColor = "#ffeff1"
+			if (diff <= -0) {
+				cardH4[i*2].parentNode.style.borderTop = "solid #9cf196"
+				if (diff <= -8){
+				cardH4[i*2].parentNode.style.borderTop = "solid green"	
+				}
+			} else if (diff >= 0) {
+				cardH4[i*2].parentNode.style.borderTop = "solid #ffb6b9"
+				if (diff >= 8){
+				cardH4[i*2].parentNode.style.borderTop = "solid red"	
+				}
 			}
 			cardH4[i*2].textContent = diff +'%'
 		} else {

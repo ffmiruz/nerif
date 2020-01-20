@@ -54,9 +54,11 @@ hr {
 .card,
 pre {
     padding: 1em;
-    border: solid var(--primary);
+    border-top: solid #99d8d0;
     text-align: justify;
 	background-color: #ffffff;
+	box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
+
 }
 
 a:hover,
@@ -94,6 +96,12 @@ h2 {
 
 h1 {
     font: 300 2.5em var(--font);
+}
+
+h7 {
+    font: 800 .8em var(--font);
+		display: inline-block;
+		float:right;
 }
 
 a {

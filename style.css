@@ -3,16 +3,13 @@
     --font: saira;
     --primary: #000099;
 }
-
 *{
     box-sizing: border-box;
     margin: .15em 0;
 }
-
 body {background-color: #f7f2e4;
         color:#1c1836;
         }
-
 @media(min-width:35em) {
     .col {
         display: table-cell;
@@ -37,20 +34,17 @@ body {background-color: #f7f2e4;
         border-spacing: 1em 0;
     }
 }
-
 .w-100,
 .row {
     width: 100%;
 	margin-bottom: 1em;
 }
-
 .card:focus,
 hr {
     outline: 0;
     border: solid var(--primary);
     margin: 2em 0;
 }
-
 .card,
 pre {
     padding: 1em;
@@ -60,12 +54,10 @@ pre {
 	box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
 
 }
-
 a:hover,
 .btn:hover {
     opacity: .6;
 }
-
 .c {
     background-color: #e5e5e5;
     max-width: 80em;
@@ -73,59 +65,47 @@ a:hover,
     margin: auto;
     font: 1em/1.6 var(--font);
 }
-
 h6 {
     font: 300 1em var(--font);
 }
-
 h5 {
     font: 300 1.2em var(--font);
 }
-
 h3 {
     font: 300 2em var(--font);
 }
-
 h4 {
     font: 300 1.5em var(--font);
 }
-
 h2 {
     font: 300 2.2em var(--font);
 }
-
 h1 {
     font: 300 2.5em var(--font);
 }
-
 h7 {
     font: 800 .8em var(--font);
-		display: inline-block;
 		float:right;
+		color:hsla(248, 38%, 15%, 0.5);
 }
-
 a {
     color: var(--primary);
     text-decoration: none;
 }
-
 .btn.primary {
     color: white;
     background: var(--primary);
     border: solid var(--primary);
 }
-
 pre {
     overflow: auto;
 }
-
 td,
 th {
     padding: 1em;
     text-align: left;
     border-bottom: solid var(--primary);
 }
-
 .btn {
     padding: 1em;
     letter-spacing: .1em;
@@ -134,5 +114,4 @@ th {
     border: solid;
     font: .7em var(--font);
     cursor:pointer;
-}
-  
+}  

@@ -21,15 +21,21 @@ const process = async function() {
 			cardP[i*2+1].textContent += algoPrice.toExponential(4)
 		
 			let diff = percentDiff(item.price_btc, algoPrice).toFixed(2)
-			if (diff <= -0) {
+			if (diff <= -00) {
 				cardH4[i*2].parentNode.style.borderTop = "solid #9cf196"
-				if (diff <= -8){
-				cardH4[i*2].parentNode.style.borderTop = "solid green"	
+				//$a('.col.card h7')[i].style.color = "#9cf196"
+				if (diff <= -7){
+				cardH4[i*2].parentNode.style.borderTop = "solid green"
+				$a('.col.card h7')[i].textContent = "Undervalued"
+				$a('.col.card h7')[i].style.color = "Green"					
 				}
-			} else if (diff >= 0) {
+			} else if (diff >= 00) {
 				cardH4[i*2].parentNode.style.borderTop = "solid #ffb6b9"
-				if (diff >= 8){
-				cardH4[i*2].parentNode.style.borderTop = "solid red"	
+				//$a('.col.card h7')[i].style.color = "#ffb6b9"
+				if (diff >= 7){
+				cardH4[i*2].parentNode.style.borderTop = "solid red"
+				$a('.col.card h7')[i].textContent = "Overvalued"
+				$a('.col.card h7')[i].style.color = "red"
 				}
 			}
 			cardH4[i*2].textContent = diff +'%'

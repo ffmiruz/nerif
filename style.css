@@ -43,7 +43,7 @@ body {background-color: #f7f2e4;
 hr {
     outline: 0;
     border: solid var(--primary);
-    margin: 2em 0;
+    margin: 1.5em 0;
 }
 .card,
 pre {

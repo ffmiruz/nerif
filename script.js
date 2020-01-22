@@ -4,8 +4,8 @@ const $a = _ => document.querySelectorAll(_)
 const process = async function() {
 	const conf = {method: "GET"}
 	let request, data, btcusd
-	//request = await fetch("http://cryptomarketplot.com/api.json", conf)
-	request = await fetch("/test_api.json", conf)
+	request = await fetch("http://cryptomarketplot.com/api.json", conf)
+	//request = await fetch("/test_api.json", conf)
 	data = await request.json()
 	btcusd = data[0].price_usd
 	
@@ -21,20 +21,20 @@ const process = async function() {
 			cardP[i*2+1].textContent += algoPrice.toExponential(4)
 		
 			let diff = percentDiff(item.price_btc, algoPrice).toFixed(2)
-			if (diff <= -00) {
+			if (diff <= 0) {
 				cardH4[i*2].parentNode.style.borderTop = "solid #9cf196"
 				//$a('.col.card h7')[i].style.color = "#9cf196"
-				if (diff <= -7){
+				if (diff <= -3){
 				cardH4[i*2].parentNode.style.borderTop = "solid green"
-				$a('.col.card h7')[i].textContent = "Undervalued"
+				$a('.col.card h7')[i].textContent = "Hoard!!"
 				$a('.col.card h7')[i].style.color = "Green"					
 				}
-			} else if (diff >= 00) {
+			} else if (diff >= 0) {
 				cardH4[i*2].parentNode.style.borderTop = "solid #ffb6b9"
 				//$a('.col.card h7')[i].style.color = "#ffb6b9"
-				if (diff >= 7){
+				if (diff >= 3){
 				cardH4[i*2].parentNode.style.borderTop = "solid red"
-				$a('.col.card h7')[i].textContent = "Overvalued"
+				$a('.col.card h7')[i].textContent = "Ditch!!"
 				$a('.col.card h7')[i].style.color = "red"
 				}
 			}
@@ -48,18 +48,25 @@ const process = async function() {
 
 const runAlgo = function (symbol, price){
 	let predicted
+	let pd, diff
 	switch(symbol) {
-		case 'ETH': 
-			return predicted = ETH(price)
+		case 'ETH':
+			pd = ETH(8.669e3)
+			diff = pd - 1.915e-2 
+			return predicted = ETH(price) - diff
 			break
 		case 'XRP': 
-			return predicted = XRP(price)
+			pd = XRP(8.669e3)
+			diff = pd - 2.680e-5
+			return predicted = XRP(price) - diff
 			break
 		case 'BCH': 
 			return predicted = BCH(price)
 			break
 		case 'BSV': 
-			return predicted = BSV(price)
+			pd = XLM(8.665e3)
+			diff = pd - 3.570e-2		
+			return predicted = XLM(price) - diff
 			break
 		case 'LTC': 
 			return predicted = LTC(price)
@@ -74,7 +81,9 @@ const runAlgo = function (symbol, price){
 			return predicted = ETC(price)
 			break
 		case 'XLM': 
-			return predicted = XLM(price)
+			pd = XLM(8.669e3)
+			diff = pd - 7.208e-6		
+			return predicted = XLM(price) - diff
 			break
 		case 'XMR': 
 			return predicted = XMR(price)

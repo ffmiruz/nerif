@@ -26,7 +26,7 @@ const process = async function() {
 				//$a('.col.card h7')[i].style.color = "#9cf196"
 				if (diff <= -3){
 				cardH4[i*2].parentNode.style.borderTop = "solid green"
-				$a('.col.card h7')[i].textContent = "Hoard!!"
+				$a('.col.card h7')[i].textContent = "Grab!!"
 				$a('.col.card h7')[i].style.color = "Green"					
 				}
 			} else if (diff >= 0) {
@@ -51,22 +51,22 @@ const runAlgo = function (symbol, price){
 	let pd, diff
 	switch(symbol) {
 		case 'ETH':
-			pd = ETH(8.669e3)
-			diff = pd - 1.915e-2 
-			return predicted = ETH(price) - diff
+			//pd = ETH(8.669e3)
+			//diff = pd - 1.915e-2 
+			return predicted = ETH(price) //- diff
 			break
 		case 'XRP': 
-			pd = XRP(8.669e3)
-			diff = pd - 2.680e-5
-			return predicted = XRP(price) - diff
+			//pd = XRP(8.669e3)
+			//diff = pd - 2.680e-5
+			return predicted = XRP(price) //- diff
 			break
 		case 'BCH': 
 			return predicted = BCH(price)
 			break
 		case 'BSV': 
-			pd = XLM(8.665e3)
-			diff = pd - 3.570e-2		
-			return predicted = XLM(price) - diff
+			//pd = BSV(8.665e3)
+			//diff = pd - 3.570e-2		
+			return predicted = BSV(price) //- diff
 			break
 		case 'LTC': 
 			return predicted = LTC(price)
@@ -81,9 +81,9 @@ const runAlgo = function (symbol, price){
 			return predicted = ETC(price)
 			break
 		case 'XLM': 
-			pd = XLM(8.669e3)
-			diff = pd - 7.208e-6		
-			return predicted = XLM(price) - diff
+			//pd = XLM(8.669e3)
+			//diff = pd - 7.208e-6		
+			return predicted = XLM(price) //- diff
 			break
 		case 'XMR': 
 			return predicted = XMR(price)
